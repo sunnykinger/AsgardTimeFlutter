@@ -1,8 +1,8 @@
 name: asgard_time
 description: Plugin for time
 version: 0.0.1
-author: Sunny Kinger
-homepage:
+homepage: https://www.sunnykinger.me/
+repository: https://github.com/sunnykinger/AsgardTimeFlutter
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
