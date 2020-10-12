@@ -1,0 +1,22 @@
+PODS:
+  - asgard_time (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - asgard_time (from `.symlinks/plugins/asgard_time/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  asgard_time:
+    :path: ".symlinks/plugins/asgard_time/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  asgard_time: 96aa9005cd713a8da6e09798bdf3c85930e66b34
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.8.4
