@@ -12,7 +12,8 @@ public class SwiftAsgardTimePlugin: NSObject, FlutterPlugin {
     
     if (call.method == "getPlatformVersion") {
       result("iOS " + UIDevice.current.systemVersion);
-    } else if (call.method == "getTime") {
+    } 
+    else if (call.method == "getTime") {
       let formatter = DateFormatter();
       formatter.timeZone = TimeZone.current;
       formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ";
@@ -22,7 +23,11 @@ public class SwiftAsgardTimePlugin: NSObject, FlutterPlugin {
             dateString = str.replacingOccurrences(of: "Z", with: "+00:00") 
         }
       result(dateString);
-    } else {
+    } 
+    else if (call.method == "getTimezone") {
+      result(TimeZone.current.identifier);
+    }
+    else {
       result(FlutterMethodNotImplemented);
     }
     

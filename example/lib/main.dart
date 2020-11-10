@@ -16,6 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
   String _currentTime = 'Unknown';
+  String _timezone = 'Unknown';
 
   @override
   void initState() {
@@ -27,10 +28,12 @@ class _MyAppState extends State<MyApp> {
   Future<void> initPlatformState() async {
     String platformVersion;
     String currentTime;
+    String timezone;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       platformVersion = await AsgardTime.platformVersion;
       currentTime = await AsgardTime.time;
+      timezone = await AsgardTime.timezone;
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -43,6 +46,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _platformVersion = platformVersion;
       _currentTime = currentTime;
+      _timezone = timezone;
     });
   }
 
@@ -54,7 +58,12 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Time is: $_currentTime\n'),
+          child: Column(
+            children: [
+              Text('Time is: $_currentTime\n'),
+              Text('Timezone is:  $_timezone\n')
+            ],
+          ),
         ),
       ),
     );
