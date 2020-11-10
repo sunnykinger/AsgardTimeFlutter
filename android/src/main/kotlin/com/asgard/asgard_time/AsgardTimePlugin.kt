@@ -30,6 +30,9 @@ class AsgardTimePlugin: FlutterPlugin, MethodCallHandler {
     }else if(call.method == "getTime"){
       val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZZZZZ")
       result.success(formatter.format(Date().time))
+    }else if(call.method == "getTimezone"){
+      val timezone = TimeZone.getDefault().id;
+      result.success(timezone)
     } else {
       result.notImplemented()
     }
