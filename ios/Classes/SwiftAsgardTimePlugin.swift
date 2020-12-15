@@ -16,6 +16,7 @@ public class SwiftAsgardTimePlugin: NSObject, FlutterPlugin {
     else if (call.method == "getTime") {
       let formatter = DateFormatter();
       formatter.timeZone = TimeZone.current;
+      formatter.locale = Locale(identifier: "en_US_POSIX")
       formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ";
       let str = formatter.string(from: Date());
       var dateString = str
