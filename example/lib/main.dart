@@ -17,6 +17,7 @@ class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
   String _currentTime = 'Unknown';
   String _timezone = 'Unknown';
+  String _offlineTime = 'Unknown';
 
   @override
   void initState() {
@@ -29,11 +30,18 @@ class _MyAppState extends State<MyApp> {
     String platformVersion;
     String currentTime;
     String timezone;
+    String offlineTime;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       platformVersion = await AsgardTime.platformVersion;
       currentTime = await AsgardTime.time;
       timezone = await AsgardTime.timezone;
+      final deviceTime = await AsgardTime.offlineTime;
+      if (deviceTime != null) {
+        offlineTime = deviceTime;
+      } else {
+        offlineTime = 'not available';
+      }
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -47,6 +55,7 @@ class _MyAppState extends State<MyApp> {
       _platformVersion = platformVersion;
       _currentTime = currentTime;
       _timezone = timezone;
+      _offlineTime = offlineTime;
     });
   }
 
@@ -61,7 +70,8 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: [
               Text('Time is: $_currentTime\n'),
-              Text('Timezone is:  $_timezone\n')
+              Text('Timezone is:  $_timezone\n'),
+              Text('Device Uptime is: $_offlineTime')
             ],
           ),
         ),
