@@ -6,7 +6,7 @@ repository: https://github.com/sunnykinger/AsgardTimeFlutter
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.20.0 <2.0.0"
+  flutter: ">=1.20.0 <2.0.1"
 
 dependencies:
   flutter:
