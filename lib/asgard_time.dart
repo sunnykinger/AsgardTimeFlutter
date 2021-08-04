@@ -19,4 +19,9 @@ class AsgardTime {
     final String timezone = await _channel.invokeMethod('getTimezone');
     return timezone;
   }
+
+  static Future<int> get isTimeValid async{
+    final int result = await _channel.invokeMethod('isTimeValid');
+    return result;
+  }
 }

@@ -7,14 +7,14 @@ import 'package:asgard_time/asgard_time.dart';
 void main() {
   runApp(MyApp());
 }
-
+ 
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+
   String _currentTime = 'Unknown';
   String _timezone = 'Unknown';
 
@@ -44,7 +44,6 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
       _currentTime = currentTime;
       _timezone = timezone;
     });
