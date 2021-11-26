@@ -41,7 +41,7 @@ public class SwiftAsgardTimePlugin: NSObject, FlutterPlugin {
         }
       result(dateString);
       } else {
-        rsult('');
+        result('');
       }
       
     }
