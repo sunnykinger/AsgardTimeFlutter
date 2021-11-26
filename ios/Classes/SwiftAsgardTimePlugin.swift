@@ -28,26 +28,25 @@ public class SwiftAsgardTimePlugin: NSObject, FlutterPlugin {
     else if (call.method == "getTimezone") {
       result(TimeZone.current.identifier);
     } else if (call.method == "convertTime") {
-      if let dict = call.arguments as? [String: Any], let millis = call.arguments["unixTime"] as? Int32 {
-        let dateTime = Date(timeIntervalSince1970: Double(millis))
-        let formatter = DateFormatter();
-        formatter.timeZone = TimeZone.current;
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ";
-        let str = formatter.string(from: dateTime);
-        var dateString = str
-        if str.hasSuffix("Z") {
-            dateString = str.replacingOccurrences(of: "Z", with: "+00:00") 
+      guard let args = call.arguments as? [String : Any] else {
+        result("-1")
+        return
         }
-      result(dateString);
-      } else {
-        result('');
+      let millis = args["unixTime"] as! Int32
+      let dateTime = Date(timeIntervalSince1970: Double(millis))
+      let formatter = DateFormatter();
+      formatter.timeZone = TimeZone.current;
+      formatter.locale = Locale(identifier: "en_US_POSIX")
+      formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ";
+      let str = formatter.string(from: dateTime);
+      var dateString = str
+      if str.hasSuffix("Z") {
+          dateString = str.replacingOccurrences(of: "Z", with: "+00:00") 
       }
-      
+    result(dateString);
     }
     else {
       result(FlutterMethodNotImplemented);
     }
-    
   }
 }
