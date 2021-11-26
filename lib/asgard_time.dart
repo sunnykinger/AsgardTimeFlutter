@@ -24,4 +24,9 @@ class AsgardTime {
     final int result = await _channel.invokeMethod('isTimeValid');
     return result;
   }
+
+  static Future<String>  convertTime(int unixTime) async{
+    final String result = await _channel.invokeMethod('convertTime', {'unixTime': unixTime});
+    return result;
+  }
 }
