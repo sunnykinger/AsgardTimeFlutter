@@ -28,7 +28,7 @@ public class SwiftAsgardTimePlugin: NSObject, FlutterPlugin {
     else if (call.method == "getTimezone") {
       result(TimeZone.current.identifier);
     } else if (call.method == "convertTime") {
-      if let millis = call.argument["unixTime"] as? Int64 {
+      if let dict = call.arguments as? [String: Any], let millis = call.arguments["unixTime"] as? Int32 {
         let dateTime = Date(timeIntervalSince1970: Double(millis))
         let formatter = DateFormatter();
         formatter.timeZone = TimeZone.current;
