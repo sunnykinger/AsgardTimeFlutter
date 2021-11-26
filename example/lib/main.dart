@@ -17,6 +17,7 @@ class _MyAppState extends State<MyApp> {
 
   String _currentTime = 'Unknown';
   String _timezone = 'Unknown';
+  String _isoTime = 'Unknown';
 
   @override
   void initState() {
@@ -29,11 +30,13 @@ class _MyAppState extends State<MyApp> {
     String platformVersion;
     String currentTime;
     String timezone;
+    String isoTime;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       platformVersion = await AsgardTime.platformVersion;
       currentTime = await AsgardTime.time;
       timezone = await AsgardTime.timezone;
+      isoTime = await AsgardTime.convertTime(1637926208627);
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -46,6 +49,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _currentTime = currentTime;
       _timezone = timezone;
+      _isoTime = isoTime;
     });
   }
 
@@ -60,7 +64,8 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: [
               Text('Time is: $_currentTime\n'),
-              Text('Timezone is:  $_timezone\n')
+              Text('Timezone is:  $_timezone\n'),
+              Text('iso time is:  $_isoTime\n')
             ],
           ),
         ),

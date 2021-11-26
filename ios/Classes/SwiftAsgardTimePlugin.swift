@@ -32,8 +32,8 @@ public class SwiftAsgardTimePlugin: NSObject, FlutterPlugin {
         result("-1")
         return
         }
-      let millis = args["unixTime"] as! Int32
-      let dateTime = Date(timeIntervalSince1970: Double(millis))
+      let millis = args["unixTime"] as! NSNumber
+      let dateTime = Date(timeIntervalSince1970: millis.doubleValue/1000)
       let formatter = DateFormatter();
       formatter.timeZone = TimeZone.current;
       formatter.locale = Locale(identifier: "en_US_POSIX")
