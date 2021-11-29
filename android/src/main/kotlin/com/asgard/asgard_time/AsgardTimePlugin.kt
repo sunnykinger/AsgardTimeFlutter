@@ -32,6 +32,12 @@ class AsgardTimePlugin : FlutterPlugin, MethodCallHandler {
         } else if (call.method == "getTimezone") {
             val timezone = TimeZone.getDefault().id;
             result.success(timezone)
+        } else if (call.method == "convertTime") {
+            val args = call.arguments as Map<*, *>
+            val time: Long = args["unixTime"] as Long
+            val date = Date(time)
+            val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZZZZZ")
+            result.success(formatter.format(date.time))
         } else {
             result.notImplemented()
         }

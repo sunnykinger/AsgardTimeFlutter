@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       platformVersion = await AsgardTime.platformVersion;
       currentTime = await AsgardTime.time;
       timezone = await AsgardTime.timezone;
-      isoTime = await AsgardTime.convertTime(1637926208627);
+      isoTime = await AsgardTime.convertTime(1638178100402);
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
