@@ -6,7 +6,7 @@ description: A Plugin for getting current time.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ^3.5.3
 
 dependencies:
   flutter:

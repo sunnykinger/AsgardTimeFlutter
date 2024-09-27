@@ -27,10 +27,10 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    String platformVersion;
-    String currentTime;
-    String timezone;
-    String isoTime;
+    String? platformVersion;
+    String currentTime ='Unknown';
+    String timezone='Unknown';
+    String isoTime='Unknown';
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       platformVersion = await AsgardTime.platformVersion;
