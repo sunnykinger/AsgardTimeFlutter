@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/asgard_time.iml" filepath="$PROJECT_DIR$/.idea/modules/asgard_time.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/asgard_time.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/asgard_time.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/asgard_time.main.iml" filepath="$PROJECT_DIR$/.idea/modules/asgard_time.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/asgard_time.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/asgard_time.unitTest.iml" />
     </modules>
   </component>
